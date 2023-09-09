@@ -6,9 +6,9 @@
 <body>
     <h1>Result</h1>
     <?php
-        if (isset($_GET["num1"]) && isset($_GET["num2"])) {
-            $num1 = $_GET["num1"];
-            $num2 = $_GET["num2"];
+        if (isset($_POST["num1"]) && isset($_POST["num2"])) {
+            $num1 = $_POST["num1"];
+            $num2 = $_POST["num2"];
 
 
             if (!is_numeric($num1) || !is_numeric($num2)) {
