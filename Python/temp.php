@@ -1,6 +1,6 @@
 
 <?php
-    $_POST=array("restart"=>"");
+    $_POST=array("num1"=>"3", "num2"=>"5");
 
-    include_once './htdocs/dashboard.php';
+    include_once './htdocs/test2/action.php';
 ?>

@@ -31,12 +31,15 @@ def handle_client(conn, addr):
     lines = msg.split("\r\n")
     print("[REQUEST WITH DETAILS]", lines)
 
+    if lines == ['']:
+        start()
+
     requested_path = lines[0].split()[1][1:]
 
     url_end_slash = True
     if requested_path == "":
         url_end_slash = False
-        requested_path = "dashboard.php"
+        requested_path = "index.php"
     elif ".php" not in requested_path and ".html" not in requested_path:
         if requested_path[-1] == '/':
             requested_path += "index.php"
@@ -73,8 +76,6 @@ def handle_client(conn, addr):
             elements += ")"
 
             try:
-                print(split_url)
-
                 f = open("temp.php", 'w')
                 f.writelines(f"""
 <?php
@@ -108,7 +109,7 @@ def handle_client(conn, addr):
         response = "./favicon.ico"
 
     else:
-        f = open(requested_path, 'r')
+        f = open('./htdocs/' + requested_path, 'r')
         msg = " ".join([i for i in f])
         response = f"""HTTP/1.1 200 OK\nContent-Type: text/html\n\n{msg}"""
 
