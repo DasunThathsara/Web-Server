@@ -14,7 +14,8 @@ This is a simple web server to serve the PHP and HTML files. It runs on `localho
   - Handle the system functions
 
 ## How to run
-Run server file to start the server file. Then the server will start. After that, go to your browser and browse to `localhost:2728` and go to your location. And save your files in the `htdocs` folder or create a folder in the `htdocs` folder and put your to that folder.
+
+Run the `start.py` file to start the server. After that, go to your browser and browse to `localhost:2728` and go to your location. If you want to create a PHP file and run it, save your files first in the `htdocs` folder, or create a folder in the `htdocs` and put your files in that folder.
 
 ## Technical Overview
 
@@ -39,16 +40,18 @@ server.listen()
         handle_client(conn, addr)
 ```
 
-Then the server can get the browser requests and respond to that using various logics. The request can be `GET` or `POST`. Server can identify it and send the request according to that method.
+Then the server can get the browser requests and respond to them using various logics. The request can be `GET` or `POST`. The server can identify it and send the request according to that method.
 
 <br><br>
 
-If the user request a PHP page, browser or server can't read it and convert to the HTML code. THerefore, the server use `subprocess` library and `php.exe` to handle it. 
+If the user requests a PHP page, the browser or server can't read it and convert it to HTML. Therefore, the server uses the subprocess` library and `php.exe` to handle it.
 
 ```python
 php_output = subprocess.check_output(["./php/php.exe", "htdocs/" + split_url[0]], stderr=subprocess.STDOUT, cwd="./")
 response = f"""HTTP/1.1 200 OK\nContent-Type: text/html\n\n{php_output.decode('utf-8')}"""
 ```
+
+This method can pass the requested PHP file to get the executed value of that file. After that, we decode that response to `utf-8`. Also, the server concatenates that value with the HTTP header and sends it to the web browser as the response to the request.
 
 
 ____
