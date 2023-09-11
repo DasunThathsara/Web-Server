@@ -1,5 +1,4 @@
-# Web-Server
-Web Server
+# Web Server
 
 ## Introduction
 This is a simple web server to serve the PHP and HTML files. It runs on `localhost:2728`, and it can identify the `index.php` files automatically. Also, it has a dashboard, and you can see the server details, developer contact, and server controlling switches in the dashboard. The dashboard runs on `localhost:2728/index.php`, or you can simply search `localhost:2728` and the server will automatically navigate to the dashboard.
