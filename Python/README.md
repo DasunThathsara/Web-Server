@@ -2,11 +2,19 @@
 
 ## Introduction
 This is a simple web server to serve the PHP and HTML files. It runs on `localhost:2728`, and it can identify the `index.php` files automatically. Also, it has a dashboard, and you can see the server details, developer contact, and server controlling switches in the dashboard. The dashboard runs on `localhost:2728/index.php`, or you can simply search `localhost:2728` and the server will automatically navigate to the dashboard.
-<br><br>
+
+## Libraries I used
+- ### socket
+  - It helps to create the socket and bind it with our server, it returns the web browser request to our server, and helps to send the server request to the web browser. 
+- ### subprocess
+  - THis library helps to pass the requested php file to `php.exe` in the php folder and get the compiled result to the server. You can donload the php file using [this link](https://windows.php.net/download#php-8.2)
+- ### os
+  - Handle the system functions
+- ### sys
+  - Handle the system functions
+
+## How to run
 Run server file to start the server file. Then the server will start. After that, go to your browser and browse to `localhost:2728` and go to your location. And save your files in the `htdocs` folder or create a folder in the `htdocs` folder and put your to that folder.
-
-## Methodology
-
 
 ____
 
