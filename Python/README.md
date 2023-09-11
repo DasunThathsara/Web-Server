@@ -16,6 +16,19 @@ This is a simple web server to serve the PHP and HTML files. It runs on `localho
 ## How to run
 Run server file to start the server file. Then the server will start. After that, go to your browser and browse to `localhost:2728` and go to your location. And save your files in the `htdocs` folder or create a folder in the `htdocs` folder and put your to that folder.
 
+## Technical review
+
+#### First, create web socket and bind it with our server file
+```python
+PORT = 2728
+SERVER = '127.0.0.1'
+ADDR = (SERVER, PORT)
+FORMAT = 'utf-8'
+DISCONNECT_MESSAGE = "!DISCONNECT"
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(ADDR)
+```
 ____
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
