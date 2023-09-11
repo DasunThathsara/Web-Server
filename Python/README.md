@@ -42,7 +42,7 @@ server.listen()
 
 Then the server can get the browser requests and respond to them using various logics. The request can be `GET` or `POST`. The server can identify it and send the request according to that method.
 
-<br><br>
+<br>
 
 If the user requests a PHP page, the browser or server can't read it and convert it to HTML. Therefore, the server uses the subprocess` library and `php.exe` to handle it.
 
