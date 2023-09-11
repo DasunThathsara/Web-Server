@@ -6,6 +6,9 @@ This is a simple web server to serve the PHP and HTML files. It runs on `localho
 <br><br>
 Also, I created this server using [Python](https://github.com/DasunThathsara/Web-Server/tree/main/Python), C, and Java. You can choose the language and run the server file in that language. Then the server will start. After that, go to your browser and browse to localhost:2728` and go to your location.
 
+- [x] Python
+- [ ] C
+- [ ] Java 
 ____
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
