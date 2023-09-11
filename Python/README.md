@@ -16,9 +16,9 @@ This is a simple web server to serve the PHP and HTML files. It runs on `localho
 ## How to run
 Run server file to start the server file. Then the server will start. After that, go to your browser and browse to `localhost:2728` and go to your location. And save your files in the `htdocs` folder or create a folder in the `htdocs` folder and put your to that folder.
 
-## Technical review
+## Technical Overview
 
-#### First, create web socket and bind it with our server file
+First, create web socket and bind it with our server file
 ```python
 PORT = 2728
 SERVER = '127.0.0.1'
@@ -29,6 +29,28 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 ```
+
+After that, we start the server and server start listening the requests
+```python
+server.listen()
+    print(f"[LISTENING] Server is listening on {SERVER}")
+    while True:
+        conn, addr = server.accept()
+        handle_client(conn, addr)
+```
+
+Then the server can get the browser requests and respond to that using various logics. The request can be `GET` or `POST`. Server can identify it and send the request according to that method.
+
+<br><br>
+
+If the user request a PHP page, browser or server can't read it and convert to the HTML code. THerefore, the server use `subprocess` library and `php.exe` to handle it. 
+
+```python
+php_output = subprocess.check_output(["./php/php.exe", "htdocs/" + split_url[0]], stderr=subprocess.STDOUT, cwd="./")
+response = f"""HTTP/1.1 200 OK\nContent-Type: text/html\n\n{php_output.decode('utf-8')}"""
+```
+
+
 ____
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
