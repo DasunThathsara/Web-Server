@@ -8,9 +8,7 @@ This is a simple web server to serve the PHP and HTML files. It runs on `localho
   - It helps to create the socket and bind it with our server, it returns the web browser request to our server, and helps to send the server request to the web browser. 
 - ### subprocess
   - THis library helps to pass the requested php file to `php.exe` in the php folder and get the compiled result to the server. You can donload the php file using [this link](https://windows.php.net/download#php-8.2)
-- ### os
-  - Handle the system functions
-- ### sys
+- ### os & sys
   - Handle the system functions
 
 ## How to run
